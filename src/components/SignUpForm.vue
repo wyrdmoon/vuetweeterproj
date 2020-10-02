@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id=signUp>
      <p>Email</p>
      <input type="text" id="email-input" v-model="email">
      <p>Username</p>
@@ -10,7 +10,8 @@
      <textarea id="bio-input" v-model="bio"></textarea>
      <p>Birthdate</p>
      <input type="text" id="birthdate-input" v-model="birthdate">
-     <h2 @click="signupUser">Sign Up</h2>
+     <h2 @click="signupUser" to ="/Home">Sign Up</h2>
+     <router-link @click="SignUp" to="/Home">Home</router-link>
     </div>
 </template>
 
@@ -46,9 +47,9 @@ import cookies from 'vue-cookies'
                         birthdate: this.birthdate,
                     }
                 }).then((response) => {
-                    //write logic to ensure that token was sent
-                    console.log(response)
-                    cookies.set('session', response.data[0].loginToken);
+                    //write logic to ensure that token was sent (if statement)
+                    console.log(response.data);
+                    cookies.set('session', response.data.loginToken);
                     //send to home page
                 }).catch((error) => {
                     console.log(error)
@@ -60,5 +61,16 @@ import cookies from 'vue-cookies'
 </script>
 
 <style lang="scss" scoped>
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
+    justify-items: center;
+    align-items: center;
+    background-color: burlywood;
+    font-family: Roboto;
+    
+    };
+
 
 </style>

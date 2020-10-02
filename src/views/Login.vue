@@ -7,6 +7,8 @@
 <input type="password" id="password-input" v-model="password">
 <h2 @click="loginUser">Login</h2>
 <h3>{{ loginStatus }}</h3>
+<router-link to="/home">Home</router-link> |
+<router-link to="/signup">Sign Up</router-link>
     </div>
 </template>
 
@@ -39,9 +41,12 @@ import cookies from 'vue-cookies'
                 }).then((response) => {
 
                     //Check if login token was sent
+                  
+                    cookies.get('loginToken');
                     console.log(response)
                     this.loginStatus ="Success"
                     cookies.set('session', response.data.loginToken);
+                    this.$router.push("/home")
                     //send user to "home page"
                 }).catch((error) => {
                     //show user login failure
@@ -54,5 +59,16 @@ import cookies from 'vue-cookies'
 </script>
 
 <style lang="scss" scoped>
+
+#body {
+   
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: burlywood;
+    
+    }
+
 
 </style>
