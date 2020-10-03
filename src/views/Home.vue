@@ -46,7 +46,7 @@ export default {
                 }).then((response) => {
                     console.log(response);
                     this.loginStatus = "Tweet";
-                    this.$store.commit("postTweet", cookies.get("UserTweet")),
+                    this.$store.commit("pTweet", cookies.get("UserTweet")),
                     this.$router.push("Home")
                 })
             }

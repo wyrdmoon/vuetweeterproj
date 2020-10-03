@@ -52,7 +52,7 @@ import cookies from 'vue-cookies'
                         //error
                     } else {
                         console.log(response.data);
-                    cookies.set('session', response.data.loginToken);
+                    cookies.set('session', response.data.signUpToken);
                     }
                     
                     //send to home page

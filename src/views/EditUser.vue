@@ -14,6 +14,8 @@
      <br>
       <button @click="editUser">Edit Profile</button>
      <router-link @click="EditUser" to="/Home">Home</router-link>
+     <br>
+     <router-link @click="EditUser" to="/DeleteUser">Delete Profile</router-link>
   
     </div>
 </template>
