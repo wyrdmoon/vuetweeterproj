@@ -1,37 +1,23 @@
 <template>
-    <div id="home1">
-    <h1>Home Page</h1>
-    <p>YOUR BIG TWEET</p>
-    <textarea id="tweet-input" v-model="content"></textarea>
-    <br>
-    
-    <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
-    <br><br>
-    <router-link to="/EditUser">Edit Profile</router-link>
-    <br> 
-    <router-link to="/Home">Home</router-link> 
-    <br>
-    <router-link to="/Login">Login</router-link> 
+    <div id="home2">
+
     </div>
 </template>
 
-
 <script>
-import axios from 'axios'
-import cookies from 'vue-cookies'
 
-export default {
-        name: "home-page",
-        data () {
+    export default {
+        name: "post-tweet",
+        data() {
             return {
                 tweets: [],
-                content:"",
-                
+                content: "",
+
             }
         },
         methods: {
             postTweet: function() {
-                axios.request({
+                 axios.request({
                     method: "POST",
                     url:"https://tweeterest.ml/api/tweets",
                     headers: {
@@ -40,7 +26,7 @@ export default {
                 
                     },
                     data: {
-                        loginToken: cookies.get("session"),
+                        loginToken: cookies.post("session"),
                         content: this.content,
                     }
                 }).then((response) => {
@@ -50,22 +36,19 @@ export default {
                     this.$router.push("Home")
                 })
             }
-           
-        },
-      
+        }
+            
     }
-    
 </script>
 
 <style lang="scss" scoped>
-#home1 {
+#home2 {
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(250px, 4fr));
     justify-items: center;
     align-items: center;
     background-color: burlywood;
     font-family: Roboto;
-    
-    };
+};
 
 </style>

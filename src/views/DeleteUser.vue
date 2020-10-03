@@ -1,6 +1,6 @@
 <template>
     <div>
-
+<button @click="deleteUser">Delete Profile</button>
     </div>
 </template>
 
@@ -11,6 +11,6 @@
     }
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
 
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div id=login>
-<h1> Welcome to Twitter Clone </h1>
+    <div id="login">
+<h1>Welcome to Twitter Clone</h1>
 <p>EMAIL</p>
 <input type="text" id="email-input" v-model="email">
 <p>PASSWORD</p>
