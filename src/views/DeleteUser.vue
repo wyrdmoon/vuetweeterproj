@@ -9,8 +9,7 @@
 <script>
 
     export default {
-        
-    }
+    }       
 </script>
 
 <style lang="scss" scoped>
@@ -21,7 +20,7 @@
     align-items: center;
     background-color: burlywood;
     font-family: Roboto;
-    font-color: purple;
+   
 };
 
 </style>

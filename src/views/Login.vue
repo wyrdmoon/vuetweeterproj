@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-<h1>Welcome to Twitter Clone</h1>
+<h1 id="welcome">Welcome to Twitter Clone</h1>
 <p>EMAIL</p>
 <input type="text" id="email-input" v-model="email">
 <p>PASSWORD</p>
@@ -68,6 +68,10 @@ import cookies from 'vue-cookies'
    grid-template-rows: repeat(4, 1fr);
    background-color: burlywood;
     
+    }
+    #welcome {
+        font-family: Roboto;
+        color: royalblue;
     }
 
 

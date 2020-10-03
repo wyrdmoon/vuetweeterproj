@@ -1,16 +1,16 @@
 <template>
-    <div id=Edit1>
+    <div id="Edit1">
 <h1> EDIT PROFILE </h1>
  <p>Email</p>
-     <input type="text" id="email-input" v-model="email">
+     <input type="text" id="email-input" v-model="email"/>
      <p>Username</p>
      <input type="text" id="username-input" v-model="username">
      <p>Password</p>
      <input type="text" id="password-input" v-model="password">
-     <p> Bio </p>
+     <p>Bio </p>
      <textarea id="bio-input" v-model="bio"></textarea>
      <p>Birthdate</p>
-     <input type="text" id="birthdate-input" v-model="birthdate">
+     <input type="text" id="birthdate-input" v-model="birthdate"/>
      <br>
      <h3>{{ EditUser }}</h3>
       <button @click="editUser">Edit Profile</button>
@@ -51,7 +51,7 @@ import cookies from 'vue-cookies'
                         password: this.password,
                         bio: this.bio,
                         birthdate: this.birthdate,
-                        loginToken: cookies.get("session")
+                        loginToken: cookies.get
 
                 }
 

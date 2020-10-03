@@ -1,10 +1,9 @@
 <template>
     <div id="home1">
-    <h1>Home Page</h1>
+    <h1 id="Home">Home Page</h1>
     <p>YOUR BIG TWEET</p>
     <textarea id="tweet-input" v-model="content"></textarea>
     <br>
-    
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
     <br><br>
     <router-link to="/EditUser">Edit Profile</router-link>
@@ -66,6 +65,10 @@ export default {
     background-color: burlywood;
     font-family: Roboto;
     
+    };
+    #Home {
+        font-family: Roboto;
+        color:royalblue
     };
 
 </style>
