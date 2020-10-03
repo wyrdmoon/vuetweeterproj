@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import SignupPage from "../views/SignUp.vue";
 import LoginPage from "../views/Login.vue";
 import Home from "../views/Home.vue";
+import EditUser from "../views/EditUser.vue";
+import DeleteUser from "../views/DeleteUser.vue";
 
 Vue.use(VueRouter);
 
@@ -22,6 +24,16 @@ const routes = [
     name: "home-page",
     component: Home
   },
+  {
+    path: "/edituser",
+    name: "edit-user",
+    component: EditUser
+  },
+  {
+    path: "/deleteuser",
+    name: "delete-user",
+    component: DeleteUser
+  }
 
   
 ];

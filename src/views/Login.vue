@@ -1,13 +1,13 @@
 <template>
-    <div>
-<h1> THIS IS THE LOGIN </h1>
+    <div id=login>
+<h1> Welcome to Twitter Clone </h1>
 <p>EMAIL</p>
 <input type="text" id="email-input" v-model="email">
 <p>PASSWORD</p>
 <input type="password" id="password-input" v-model="password">
 <h2 @click="loginUser">Login</h2>
 <h3>{{ loginStatus }}</h3>
-<router-link to="/home">Home</router-link> |
+<router-link to="/Home">Home</router-link> |
 <router-link to="/signup">Sign Up</router-link>
     </div>
 </template>
@@ -60,13 +60,13 @@ import cookies from 'vue-cookies'
 
 <style lang="scss" scoped>
 
-#body {
+#login {
    
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(4, 1fr);
-    background-color: burlywood;
+   grid-template-rows: repeat(4, 1fr);
+   background-color: burlywood;
     
     }
 
