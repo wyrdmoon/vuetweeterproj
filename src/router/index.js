@@ -10,6 +10,7 @@ import DeleteUser from "../views/DeleteUser.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  
    {
      path: "/signup", 
      name: "signup-page",
