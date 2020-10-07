@@ -8,7 +8,7 @@
     <get-tweets></get-tweets>
     <h1> {{ tweet }}  </h1>
     <p>YOUR BIG TWEET</p>
-    <p v-for="tweet in tweets" :key="tweet.userId">{{tweet.content}}</p>
+   
     <textarea id="tweet-input" v-model="content"></textarea>
     <br>
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
