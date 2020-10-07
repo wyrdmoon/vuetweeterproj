@@ -46,6 +46,7 @@ import cookies from 'vue-cookies'
                     console.log(response)
                     this.loginStatus ="Success"
                     cookies.set('session', response.data.loginToken);
+                    cookies.set('userId', response.data.userId);
                     this.$router.push("/home")
                     //send user to "home page"
                 }).catch((error) => {
@@ -62,16 +63,16 @@ import cookies from 'vue-cookies'
 
 #login {
    
-    display: grid;
-    justify-items: center;
-    align-items: center;
+   display: grid;
+   justify-items: center;
+   align-items: center;
    grid-template-rows: repeat(4, 1fr);
    background-color: burlywood;
     
     }
     #welcome {
         font-family: Roboto;
-        color: royalblue;
+        color: black;
     }
 
 

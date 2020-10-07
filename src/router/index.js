@@ -6,7 +6,6 @@ import Home from "../views/Home.vue";
 import EditUser from "../views/EditUser.vue";
 import DeleteUser from "../views/DeleteUser.vue";
 
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -35,8 +34,8 @@ const routes = [
     path: "/deleteuser",
     name: "delete-user",
     component: DeleteUser
-  }
-
+  },
+  
   
 ];
 

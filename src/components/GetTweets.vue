@@ -1,13 +1,15 @@
 <template>
     <div id="home2">
-
+    <button @click="getTweets">Get Tweets</button>
+    <p v-for="tweet in tweets" :key="tweet.userId">{{tweet.content}}</p>
     </div>
 </template>
 
 <script>
-
+import axios from 'axios'
+import cookies from 'vue-cookies'
     export default {
-        name: "post-tweet",
+        name: "get-tweets",
         data() {
             return {
                 tweets: [],
@@ -16,25 +18,31 @@
             }
         },
         methods: {
-            postTweet: function() {
+            getTweets: function() {
                  axios.request({
-                    method: "POST",
+                    method: "GET",
                     url:"https://tweeterest.ml/api/tweets",
                     headers: {
                         "Content-Type": "application/json",
                         "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
                 
                     },
-                    data: {
-                        loginToken: cookies.post("session"),
-                        content: this.content,
-                    }
+                   params: {
+                       userId: cookies.get('userId'),
+                      
+
+                
+                       
+                   }
+                       
                 }).then((response) => {
                     console.log(response);
-                    this.loginStatus = "Tweet";
-                    this.$store.commit("postTweet", cookies.get("UserTweet")),
-                    this.$router.push("Home")
-                })
+                    this.tweets=response.data
+                   
+                    
+                }).catch((error) => {
+                    console.log(error);
+                }) 
             }
         }
             

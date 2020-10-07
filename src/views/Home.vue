@@ -1,26 +1,35 @@
 <template>
-    <div id="home1">
-    <h1 id="Home">Home Page</h1>
-    <p>YOUR BIG TWEET</p>
-    <textarea id="tweet-input" v-model="content"></textarea>
-    <br>
-    <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
-    <br><br>
-    <router-link to="/EditUser">Edit Profile</router-link>
+<div id="home1">
     <br> 
     <router-link to="/Home">Home</router-link> 
     <br>
     <router-link to="/Login">Login</router-link> 
+    <h1 id="Home">Home Page</h1>
+    <get-tweets></get-tweets>
+    <h1> {{ tweet }}  </h1>
+    <p>YOUR BIG TWEET</p>
+    <p v-for="tweet in tweets" :key="tweet.userId">{{tweet.content}}</p>
+    <textarea id="tweet-input" v-model="content"></textarea>
+    <br>
+    <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
+    <br><br>
+   <router-link to="/EditUser">Edit Profile</router-link>
+    <button>Log Out </button>
     </div>
 </template>
 
 
 <script>
+import GetTweets from '../components/GetTweets.vue'
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
 export default {
         name: "home-page",
+        components: {
+            GetTweets,
+        },
+
         data () {
             return {
                 tweets: [],
@@ -45,8 +54,8 @@ export default {
                 }).then((response) => {
                     console.log(response);
                     this.loginStatus = "Tweet";
-                    this.$store.commit("pTweet", cookies.get("UserTweet")),
-                    this.$router.push("Home")
+                    this.$store.commit("Tweet", cookies.get("session")),
+                    this.$router.push("/Home")
                 })
             }
            
@@ -68,7 +77,7 @@ export default {
     };
     #Home {
         font-family: Roboto;
-        color:royalblue
+        color: black;
     };
 
 </style>

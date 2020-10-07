@@ -12,9 +12,9 @@
      <p>Birthdate</p>
      <input type="text" id="birthdate-input" v-model="birthdate"/>
      <br>
-     <h3>{{ EditUser }}</h3>
+     <h3> EditUser </h3>
       <button @click="editUser">Edit Profile</button>
-     <router-link @click="EditUser" to="/Home">Home</router-link>
+    <!-- <router-link @click="EditUser" to="/Home">Home</router-link> -->
      <br>
      <router-link @click="EditUser" to="/DeleteUser">Delete Profile</router-link>
   
@@ -51,15 +51,16 @@ import cookies from 'vue-cookies'
                         password: this.password,
                         bio: this.bio,
                         birthdate: this.birthdate,
-                        loginToken: cookies.get
+                        loginToken: cookies.get("session")
 
                 }
 
                 }).then((response) => {
                     //
+                   if (response.data.loginToken) 
+                    console.log(response);
                    
-                    console.log(response.data);
-                    cookies.set('session', response.data[0].loginToken);
+                
                     //send to home page
                 }).catch((error) => {
                     console.log(error)
