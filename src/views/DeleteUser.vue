@@ -13,7 +13,7 @@
 <script>
 import axios from 'axios'
 import cookies from 'vue-cookies'
-import GetTweets from ''
+
     export default {
          data() {
             return {
@@ -40,8 +40,8 @@ import GetTweets from ''
                     cookies.remove('session');
                     console.log(response)
                     this.deleteUser = "Success"
-                    // cookies.remove('session', response.data.loginToken);
-                    // this.$router.push("/home")
+                    cookies.remove('session', response.data.loginToken);
+                    this.$router.push("/login")
                 })
             
                 

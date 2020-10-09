@@ -1,7 +1,10 @@
 <template>
     <div id="home2">
+   
     <button @click="getTweets">Get Tweets</button>
     <p v-for="tweet in tweets" :key="tweet.userId">{{tweet.content}}</p>
+   
+   
     </div>
 </template>
 
@@ -28,7 +31,7 @@ import cookies from 'vue-cookies'
                 
                     },
                    params: {
-                       userId: cookies.get('userId'),
+                       userId: cookies.get(''),
                       
 
                 

@@ -14,9 +14,9 @@
      <br>
      <h3> EditUser </h3>
       <button @click="editUser">Edit Profile</button>
-    <!-- <router-link @click="EditUser" to="/Home">Home</router-link> -->
+    <router-link  to="/Home">Home</router-link> 
      <br>
-     <router-link @click="EditUser" to="/DeleteUser">Delete Profile</router-link>
+     <router-link  to="/DeleteUser">Delete Profile</router-link>
   
     </div>
 </template>

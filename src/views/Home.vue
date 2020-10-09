@@ -6,6 +6,8 @@
     <router-link to="/Login">Login</router-link> 
     <h1 id="Home">Home Page</h1>
     <get-tweets></get-tweets>
+    <view-users></view-users>
+    <edit-tweet></edit-tweet>
     <h1> {{ tweet }}  </h1>
     <p>YOUR BIG TWEET</p>
    
@@ -14,12 +16,15 @@
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
     <br><br>
    <router-link to="/EditUser">Edit Profile</router-link>
+   
     <button>Log Out </button>
     </div>
 </template>
 
 
 <script>
+import EditTweet from '../components/EditTweet.vue'
+import ViewUsers from '../components/ViewUsers.vue'
 import GetTweets from '../components/GetTweets.vue'
 import axios from 'axios'
 import cookies from 'vue-cookies'
@@ -28,6 +33,8 @@ export default {
         name: "home-page",
         components: {
             GetTweets,
+            ViewUsers,
+            EditTweet,
         },
 
         data () {
