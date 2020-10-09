@@ -2,6 +2,7 @@
     <div id=Edit1>
 <button @click="editTweet">Edit Tweets</button>
  <p v-for="tweet in tweets" :key="tweet.userId">{{tweet.content}}</p>
+  <textarea id="tweet-input" v-model="content"></textarea>
     </div>
 </template>
 

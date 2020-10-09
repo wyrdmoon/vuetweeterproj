@@ -29,7 +29,7 @@ import cookies from 'vue-cookies'
                         userId: cookies.delete(''),
                     }
                 }).then((response) => {
-                    console.log(repsonse);
+                    console.log(response);
                     this.tweets=response.data
                 }).catch((error) =>{
                     console.log(error);

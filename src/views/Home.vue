@@ -14,8 +14,11 @@
     <textarea id="tweet-input" v-model="content"></textarea>
     <br>
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
+    
     <br><br>
+
    <router-link to="/EditUser">Edit Profile</router-link>
+   
    
     <button>Log Out </button>
     </div>
