@@ -2,7 +2,7 @@
     <div id="view1">
 <h1>View Other Users</h1>
 <button @click="viewUsers">View Users</button>
-<p v-for="user in user" :key="user.userId">{{user.userId}}</p>
+<p v-for="users in users" :key="users.userId">{{users.userId}}</p>
 
     </div>
 </template>
@@ -15,7 +15,8 @@ import cookies from 'vue-cookies'
         name:"view-users",
         data() {
             return {
-                userId: "",
+                userId: [],
+                users: "",
                 email: "",
                 bio: "",
                 birthdate: "",
