@@ -1,22 +1,29 @@
 <template>
   <div id="Edit1">
-    
-    <button @click="editTweet">Edit Tweets</button>
-    <p v-if="tweets in tweets" :key="tweets.userId">{{ tweets.content }}</p>
-    <textarea id="tweet-input" v-model="content"></textarea>
+     <textarea id="tweet-input" v-model="content"></textarea>
+    <button input id="edit-tweet" type="submit" value="Tweet" @click="editTweets">Edit Tweets</button>
+
+   
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import cookies from "vue-cookies";
+import cookies from 'vue-cookies'
+
 export default {
   name: "edit-tweet",
+  props: {
+    tweetId: {
+      type: Number,
+     
+    },
+  },
   data() {
     return {
-      editTweet: "",
-      tweets: [],
-      content: ""
+     
+      
+      content: "",
     };
   },
   methods: {
@@ -30,10 +37,9 @@ export default {
             "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
           },
           data: {
-            userId: cookies.patch(""),
-            tweetId: "",
-            content: "",
-            loginToken: "",
+            loginToken: cookies.get("session"), 
+            tweetId: this.tweetId,
+            content:this.content,
           }
         })
         .then(response => {

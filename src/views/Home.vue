@@ -1,13 +1,13 @@
 <template>
 <div id="home1">
-    <br> 
     <router-link to="/Home">Home</router-link> 
-    <br>
     <router-link to="/Login">Login</router-link> 
+    
     <h1 id="Home">Home Page</h1>
     <get-tweets></get-tweets>
     <view-users></view-users>
     <edit-tweet></edit-tweet>
+    <log-out></log-out>
     <h1> {{ tweet }}  </h1>
     <p>YOUR BIG TWEET</p>
    
@@ -19,8 +19,8 @@
 
    <router-link to="/EditUser">Edit Profile</router-link>
    
+   <router-link to="/LogOut">Log Out</router-link>
    
-    <button>Log Out </button>
     </div>
 </template>
 
@@ -29,6 +29,7 @@
 import EditTweet from '../components/EditTweet.vue'
 import ViewUsers from '../components/ViewUsers.vue'
 import GetTweets from '../components/GetTweets.vue'
+import LogOut from '../components/LogOut.vue'
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
@@ -38,6 +39,7 @@ export default {
             GetTweets,
             ViewUsers,
             EditTweet,
+            LogOut,
         },
 
         data () {
@@ -64,8 +66,8 @@ export default {
                 }).then((response) => {
                     console.log(response);
                     this.loginStatus = "Tweet";
-                    this.$store.commit("Tweet", cookies.get("session")),
-                    this.$router.push("/Home")
+                  
+                    
                 })
             }
            

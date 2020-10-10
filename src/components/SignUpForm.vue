@@ -10,9 +10,9 @@
      <textarea id="bio-input" v-model="bio"></textarea>
      <p>Birthdate</p>
      <input type="text" id="birthdate-input" v-model="birthdate">
-     <h3> {{SignUp}} </h3>
+   
      <button @click="signupUser">Sign Up</button>
-     <router-link @click="SignUp" to="/home">Home</router-link>
+     <router-link @click="signupUser" to="/home">Home</router-link>
     </div>
 </template>
 

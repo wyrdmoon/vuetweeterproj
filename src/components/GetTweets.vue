@@ -2,9 +2,10 @@
   <div id="home2">
     <button @click="getTweets">Get Tweets</button>
 
-    <div v-for="tweet in tweets" :key="tweet.userId">
+    <div v-for="tweet in tweets" :key="tweet.tweetId">
       <p>{{ tweet.content }}</p>
-      <edit-tweet></edit-tweet>
+      <h5>{{ tweet.username }}</h5>
+      <edit-tweet :tweetId="tweet.tweetId"></edit-tweet>
       <!-- <div v-for="tweet in tweets" :key="tweet.userId"> -->
         <!-- <p>{{ tweet.content }}</p> -->
       </div>
