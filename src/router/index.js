@@ -5,7 +5,7 @@ import LoginPage from "../views/Login.vue";
 import Home from "../views/Home.vue";
 import EditUser from "../views/EditUser.vue";
 import DeleteUser from "../views/DeleteUser.vue";
-
+import CreateComment from '../components/CreateComment.vue';
 Vue.use(VueRouter);
 
 const routes = [
@@ -34,6 +34,11 @@ const routes = [
     path: "/deleteuser",
     name: "delete-user",
     component: DeleteUser
+  },
+  {
+    path: "/createcomment",
+    name: "create-comment",
+    component: CreateComment
   },
   
   

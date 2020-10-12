@@ -31,10 +31,11 @@ import cookies from 'vue-cookies'
                         "Content-Type": "application/json",
                         "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
                      },
-                     params:{
-                         userId: cookies.get(''),
-                        
-                     }
+
+                      params:{
+                          userId: cookies.get(''),
+                        },
+                       
                 }).then((response) => {
                     console.log(response);
                     this.userId=response.data

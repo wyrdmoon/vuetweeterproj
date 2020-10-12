@@ -2,14 +2,16 @@
   <div id="Edit1">
      <textarea id="tweet-input" v-model="content"></textarea>
     <button input id="edit-tweet" type="submit" value="Tweet" @click="editTweets">Edit Tweets</button>
-
+    
    
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import cookies from 'vue-cookies'
+import cookies from 'vue-cookies';
+
+
 
 export default {
   name: "edit-tweet",
@@ -28,8 +30,7 @@ export default {
   },
   methods: {
     editTweets: function() {
-      axios
-        .request({
+      axios.request({
           method: "PATCH",
           url: "https://tweeterest.ml/api/tweets",
           headers: {
@@ -41,12 +42,10 @@ export default {
             tweetId: this.tweetId,
             content:this.content,
           }
-        })
-        .then(response => {
+        }).then(response => {
           console.log(response);
-          this.tweets = response.data;
-        })
-        .catch(error => {
+          this.tweets = response.data
+        }).catch(error => {
           console.log(error);
         });
     }

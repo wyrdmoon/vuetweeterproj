@@ -1,25 +1,32 @@
 <template>
-<div id="home1">
-    <router-link to="/Home">Home</router-link> 
-    <router-link to="/Login">Login</router-link> 
+<div class="home1">
+   
     
     <h1 id="Home">Home Page</h1>
+   
+    <router-link to="/Home">Home</router-link> |
+    <router-link to="/Login">Login</router-link> |
+    <router-link to="/EditUser">Edit Profile</router-link>|
+    <router-link to="/LogOut">Log Out</router-link>
     <get-tweets></get-tweets>
     <view-users></view-users>
     <edit-tweet></edit-tweet>
+    <delete-tweet></delete-tweet>
+    <create-comment></create-comment>
+    <update-comment></update-comment>
     <log-out></log-out>
-    <h1> {{ tweet }}  </h1>
+
+    <div id="big-tweet"> {{ tweet }}  
     <p>YOUR BIG TWEET</p>
    
     <textarea id="tweet-input" v-model="content"></textarea>
     <br>
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
     
+    </div>
     <br><br>
-
-   <router-link to="/EditUser">Edit Profile</router-link>
    
-   <router-link to="/LogOut">Log Out</router-link>
+
    
     </div>
 </template>
@@ -29,7 +36,10 @@
 import EditTweet from '../components/EditTweet.vue'
 import ViewUsers from '../components/ViewUsers.vue'
 import GetTweets from '../components/GetTweets.vue'
+import DeleteTweet from '../components/DeleteTweet.vue'
+import CreateComment from '../components/CreateComment.vue'
 import LogOut from '../components/LogOut.vue'
+import UpdateComment from '../components/UpdateComment.vue'
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
@@ -39,7 +49,11 @@ export default {
             GetTweets,
             ViewUsers,
             EditTweet,
+            DeleteTweet,
             LogOut,
+            CreateComment,
+            UpdateComment,
+
         },
 
         data () {
@@ -80,7 +94,8 @@ export default {
 <style lang="scss" scoped>
 #home1 {
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(250px, 4fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
     justify-items: center;
     align-items: center;
     background-color: burlywood;
@@ -88,6 +103,22 @@ export default {
     
     };
     #Home {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-items: center;
+        align-items: center;
+        background-color: burlywood;
+        font-family: Roboto;
+        color: black;
+    };
+    
+    
+    #big-tweet {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        justify-items: center;
+        align-items: center;
+        background-color: burlywood;
         font-family: Roboto;
         color: black;
     };

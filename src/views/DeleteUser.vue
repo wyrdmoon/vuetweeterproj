@@ -42,7 +42,10 @@ import cookies from 'vue-cookies'
                     this.deleteUser = "Success"
                     cookies.remove('session', response.data.loginToken);
                     this.$router.push("/login")
-                })
+                }).catch((error)=>{
+                    this.deleteUser = "Error"
+                    console.log(error)
+                });
             
                 
             }
