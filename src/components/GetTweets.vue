@@ -5,12 +5,21 @@
     <div v-for="tweet in tweets" :key="tweet.tweetId">
       <p>{{ tweet.content }}</p>
       <h5>{{ tweet.username }}</h5>
+      <h5>{{ tweet.createdAt }}</h5>
       <edit-tweet :tweetId="tweet.tweetId"></edit-tweet>
+       <delete-tweet :tweetId="tweet.tweetId"></delete-tweet>
+       <create-comment></create-comment>
+       <update-comment></update-comment>
+       <delete-comment></delete-comment>
+       <get-comment></get-comment>
+       
+
+      
       <!-- <div v-for="tweet in tweets" :key="tweet.userId"> -->
         <!-- <p>{{ tweet.content }}</p> -->
       </div>
 
-      <delete-tweet></delete-tweet>
+     
     </div>
   
 </template>
@@ -20,11 +29,20 @@ import axios from "axios";
 import cookies from "vue-cookies";
 import EditTweet from "../components/EditTweet.vue";
 import DeleteTweet from "../components/DeleteTweet.vue";
+import CreateComment from "../components/CreateComment";
+import UpdateComment from "../components/UpdateComment";
+import DeleteComment from "../components/DeleteComment";
+import GetComment from "../components/GetComment";
+
 export default {
   name: "get-tweets",
   components: {
     EditTweet,
-    DeleteTweet
+    DeleteTweet,
+    CreateComment,
+    UpdateComment,
+    DeleteComment,
+    GetComment,
   },
   data() {
     return {

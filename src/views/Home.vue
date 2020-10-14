@@ -11,12 +11,14 @@
     <get-tweets></get-tweets>
     <view-users></view-users>
     <edit-tweet></edit-tweet>
-    <delete-tweet></delete-tweet>
-    <create-comment></create-comment>
-    <update-comment></update-comment>
+    
+   
     <log-out></log-out>
 
-    <div id="big-tweet"> {{ tweet }}  
+
+    <div id="big-tweet">
+     
+     <h5>{{ tweet.content }}</h5>  
     <p>YOUR BIG TWEET</p>
    
     <textarea id="tweet-input" v-model="content"></textarea>
@@ -24,10 +26,10 @@
     <button input id="tweet-submit" type="submit" value="Tweet" @click="postTweet">POST A BIG TWEET HERE</button>
     
     </div>
-    <br><br>
+    
    
 
-   
+     
     </div>
 </template>
 
@@ -36,10 +38,10 @@
 import EditTweet from '../components/EditTweet.vue'
 import ViewUsers from '../components/ViewUsers.vue'
 import GetTweets from '../components/GetTweets.vue'
-import DeleteTweet from '../components/DeleteTweet.vue'
-import CreateComment from '../components/CreateComment.vue'
+
+
 import LogOut from '../components/LogOut.vue'
-import UpdateComment from '../components/UpdateComment.vue'
+
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
@@ -49,13 +51,14 @@ export default {
             GetTweets,
             ViewUsers,
             EditTweet,
-            DeleteTweet,
+            
             LogOut,
-            CreateComment,
-            UpdateComment,
+          
+         
 
         },
-
+        
+      
         data () {
             return {
                 tweet: [],

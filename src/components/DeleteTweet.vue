@@ -17,8 +17,9 @@ import cookies from 'vue-cookies'
         props: {
             tweetId: {
                 type: Number,
-                required: true
-            },
+                required: true,
+               
+                },
         }, methods: {
             deleteTweet: function() {
                 axios.request ({
