@@ -14,8 +14,7 @@ import cookies from 'vue-cookies'
         props: {
             commentId: {
                 
-                type: Number,
-                required: true 
+               loginToken:"",
             },
         }, methods:{
             deleteComment: function() {

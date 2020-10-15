@@ -1,6 +1,8 @@
 <template>
     <div id="comment">
+        <textarea id="comment-input" v-model="content"></textarea>
 <button input id="update-comment" type="submit" value="Tweet" @click="updateComment">Update Comment</button>
+
     </div>
 </template>
 

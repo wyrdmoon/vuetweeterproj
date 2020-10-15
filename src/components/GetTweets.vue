@@ -1,14 +1,15 @@
 <template>
   <div id="home2">
     <button @click="getTweets">Get Tweets</button>
-
+    
     <div v-for="tweet in tweets" :key="tweet.tweetId">
       <p>{{ tweet.content }}</p>
       <h5>{{ tweet.username }}</h5>
       <h5>{{ tweet.createdAt }}</h5>
       <edit-tweet :tweetId="tweet.tweetId"></edit-tweet>
        <delete-tweet :tweetId="tweet.tweetId"></delete-tweet>
-       <create-comment></create-comment>
+       <create-comment :tweetId="tweet.tweetId"></create-comment>
+
        <update-comment></update-comment>
        <delete-comment></delete-comment>
        <get-comment></get-comment>
@@ -44,6 +45,12 @@ export default {
     DeleteComment,
     GetComment,
   },
+   props: {
+            commentId: {
+              
+               tweetId: "",
+            },
+   },
   data() {
     return {
       tweets: [],
@@ -52,8 +59,8 @@ export default {
   },
   methods: {
     getTweets: function() {
-      axios
-        .request({
+    
+      axios.request({
           method: "GET",
           url: "https://tweeterest.ml/api/tweets",
           headers: {
@@ -63,17 +70,17 @@ export default {
           params: {
             userId: cookies.get("")
           }
-        })
-        .then(response => {
+        }).then(response => {
           console.log(response);
           this.tweets = response.data;
-        })
-        .catch(error => {
+        }).catch(error => {
           console.log(error);
         });
     }
   }
-};
+ 
+}
+
 </script>
 
 <style lang="scss" scoped>
