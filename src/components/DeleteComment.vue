@@ -1,6 +1,6 @@
 <template>
-    <div id="delete-comment">
-    <button input id="delete-comment" @click="deleteComment">Delete Comment</button>
+    <div id="delete2">
+    <button input id="delete-comment" type="submit" value="Comment" @click="deleteComment">Delete Comment</button>
     </div>
 </template>
 
@@ -10,14 +10,18 @@ import cookies from 'vue-cookies'
     
     export default {
         name: "delete-comment",
-        
         props: {
             commentId: {
-                
-               loginToken:"",
-            },
-        }, methods:{
+                type: Number,
+                required: true,
+               
+                },
+        },
+      
+        
+       methods:{
             deleteComment: function() {
+                
                 axios.request ({
                     method: "DELETE",
                     url: "https://tweeterest.ml/api/comments",
@@ -27,7 +31,7 @@ import cookies from 'vue-cookies'
                     },
                     data: {
                         loginToken: cookies.get("session"),
-                       tweetId: this.tweetId
+                       commentId: this.commentId
                     }
                 }).then((response) => {
                     console.log(response);
@@ -40,7 +44,7 @@ import cookies from 'vue-cookies'
 </script>
 
 <style lang="scss" scoped>
-#delete-comment {
+#delete2 {
      display: grid;
     grid-template-rows: repeat(auto-fit, minmax(250px, 4fr));
     justify-items: center;

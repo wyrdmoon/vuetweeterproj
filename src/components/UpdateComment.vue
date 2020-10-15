@@ -1,6 +1,7 @@
 <template>
-    <div id="comment">
-        <textarea id="comment-input" v-model="content"></textarea>
+    <div id="comment1">
+        
+<textarea id="comment-input" v-model="content"></textarea>
 <button input id="update-comment" type="submit" value="Tweet" @click="updateComment">Update Comment</button>
 
     </div>
@@ -10,21 +11,24 @@
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
+
     export default {
         name: "update-comment",
         props:{
             commentId: {
                 type: Number,
+                required: true,
             },
         },
         data() {
             return {
               
-                tweetId: "",
-                userId: "",
-                username: "",
-                content: "",
-                createdAt: "",
+              username: "",
+              userId: "",
+              createdAt: "",
+              tweetId: "",
+              content: "",
+                
 
             };
         },
@@ -40,12 +44,12 @@ import cookies from 'vue-cookies'
                    },
                    data: {
                      loginToken: cookies.get("session"), 
-                     tweetId: this.tweetId,
+                     commentId: this.commentId,
                     content:this.content,
                }
             }).then(response => {
           console.log(response);
-          this.tweets = response.data
+          this.comment = response.data
         }).catch(error => {
           console.log(error);
         });
@@ -57,13 +61,6 @@ import cookies from 'vue-cookies'
 </script>
 
 <style lang="scss" scoped>
-#comment {
-    display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(250px, 4fr));
-  justify-items: center;
-  align-items: center;
-  background-color: burlywood;
-  font-family: Roboto;
-};
+
 
 </style>

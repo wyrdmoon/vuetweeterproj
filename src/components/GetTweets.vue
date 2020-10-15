@@ -8,11 +8,12 @@
       <h5>{{ tweet.createdAt }}</h5>
       <edit-tweet :tweetId="tweet.tweetId"></edit-tweet>
        <delete-tweet :tweetId="tweet.tweetId"></delete-tweet>
+      <delete-comment :tweetId="tweet.tweetId"></delete-comment>
        <create-comment :tweetId="tweet.tweetId"></create-comment>
 
-       <update-comment></update-comment>
-       <delete-comment></delete-comment>
-       <get-comment></get-comment>
+       <update-comment :tweetId="tweet.tweetId"></update-comment>
+       
+       <get-comment :tweetId ="tweet.tweetId"></get-comment>
        
 
       
@@ -23,6 +24,7 @@
      
     </div>
   
+  
 </template>
 
 <script>
@@ -31,8 +33,8 @@ import cookies from "vue-cookies";
 import EditTweet from "../components/EditTweet.vue";
 import DeleteTweet from "../components/DeleteTweet.vue";
 import CreateComment from "../components/CreateComment";
-import UpdateComment from "../components/UpdateComment";
-import DeleteComment from "../components/DeleteComment";
+ import UpdateComment from "../components/UpdateComment";
+ import DeleteComment from "../components/DeleteComment";
 import GetComment from "../components/GetComment";
 
 export default {
@@ -46,15 +48,13 @@ export default {
     GetComment,
   },
    props: {
-            commentId: {
-              
-               tweetId: "",
-            },
+            commentId: Number,
+            tweetId: Number,
    },
   data() {
     return {
       tweets: [],
-      content: ""
+      content: "",
     };
   },
   methods: {
@@ -68,8 +68,10 @@ export default {
             "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
           },
           params: {
-            userId: cookies.get("")
-          }
+            
+            userId: cookies.get(""),
+          },
+        
         }).then(response => {
           console.log(response);
           this.tweets = response.data;

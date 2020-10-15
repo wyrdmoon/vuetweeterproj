@@ -7,11 +7,22 @@
 
 <script>
 import axios from 'axios';
-import cookies from 'vue-cookies';
+// import UpdateComment from 'UpdateComment.vue';
+// import DeleteComment from 'DeleteComment.vue';
+
 
 export default {
 name: "get-comment",
+// components:
+// UpdateComment,
+// DeleteComment,
 
+props: {
+    tweetId: {
+        type: Number,
+      
+    },
+},
 data() {
     return {
         commentId: "",
@@ -31,7 +42,10 @@ methods: {
             "X-Api-Key": "wH6jPB8AleilzE7sjqFeARAAfXLKeEpoQKSZgPCpUW9s2"
             },
             params: {
-                tweetId: cookies.get("")
+            
+            tweetId: this.tweetId
+           
+            
             }
         }).then(response => {
             console.log(response);

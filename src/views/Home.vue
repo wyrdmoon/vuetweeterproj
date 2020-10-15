@@ -7,6 +7,7 @@
     <router-link to="/Login">Login</router-link> |
     <router-link to="/EditUser">Edit Profile</router-link>|
     <router-link to="/LogOut">Log Out</router-link>
+  
     <get-tweets></get-tweets>
     <view-users></view-users>
     <edit-tweet></edit-tweet>
@@ -48,9 +49,10 @@ export default {
     GetTweets,
     ViewUsers,
     EditTweet,
-
+   
     LogOut
   },
+ 
 
   data() {
     return {
